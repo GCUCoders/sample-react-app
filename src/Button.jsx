@@ -1,19 +1,18 @@
-import { useState } from 'react';
-import './App.css';
+import React, { useEffect, useState } from 'react';
 
-function Button() {
-	const [counter, setCounter] = useState(0);
+function Example() {
+	const [count, setCount] = useState(0);
 
-	function updateCounter() {
-		setCounter(counter + 1);
-	}
+	useEffect(() => {
+		document.title = `You clicked ${count} times`;
+	});
 
 	return (
-		<div className="Button">
-			<button onClick={updateCounter}>Click Me</button>
-			<p>{counter}</p>
+		<div>
+			<p>You clicked {count} times</p>
+			<button onClick={() => setCount(count + 1)}>Click me</button>
 		</div>
 	);
 }
 
-export default Button;
+export default Example;
